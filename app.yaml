@@ -1,0 +1,31 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+  - url: /createstream
+    script: CreateStream.application
+    login: required
+
+  - url: /sign
+    script: CreateStream.application
+    login: required
+
+  - url: /management
+    script: management.application
+    login: required
+
+  - url: /error
+    script: error.application
+    login: required
+
+  - url: /.*
+    script: login.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <title>{% block title %}{% endblock %}</title>>
+        </head>
+        <body>
+        <h1>Welcome to ConnexUS!</h1>
+        <h2>Share with world!</h2>
+        <div class="header">
+            <ul>
+                <li><a href="management.html">Management</a></li>
+                <li><a href="create.html">Create</a></li>
+                <li><a href="view.html">View</a></li>
+                <li><a href="trend.html">Trend</a></li>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="/">Logout</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        </body>
+</html>

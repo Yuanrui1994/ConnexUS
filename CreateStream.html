@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/sign" method="post">
+Name your stream:<br>
+<input type="text" name="name"><br>
+Tag your stream:<br>
+<textarea name="tags" rows="3" cols="20"></textarea><br>
+URL to cover image(Can be empty):<br>
+<input type="text" name="cover_url"><br>
+Add subscribers<br>
+Email:<br>
+<textarea name="subscribers" rows="3" cols="20"></textarea><br>
+Optional mesages for invite:<br>
+<textarea name="message" rows="3" cols="20"></textarea><br>
+<input type="submit" value="Create Stream">
+</form>
+{% endblock %}
