@@ -16,6 +16,9 @@ handlers:
     script: management.application
     login: required
 
+  - url: /managementhandler
+    script: management.application
+    login: required
   - url: /error
     script: error.application
     login: required
