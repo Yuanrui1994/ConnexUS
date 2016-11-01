@@ -1,4 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-<h3>Management page</h3>
+<div class="owned">
+<h3>Streams I own</h3><br>
+<form action="/managementhandler" method="post">
+<table style="width: 100%">
+<tr>
+	<th>Name</th>
+	<th>Last New Picture</th>
+	<th>Number of Pictures</th>
+	<th>Delete</th>
+</tr>
+{% for stream in owned_streams %}
+<tr>
+	<td><a href="/view?stream_name={{stream.name}}">{{stream.name}}</a></td>
+	<td>{{stream.last_new_date}}</td>
+	<td>{{stream.num_of_pics}}</td>
+	<td><input type="checkbox" name="delete{{stream.key.id()}}"></td>
+</tr>
+{% endfor %}
+</table>
+<input type="submit" name="delete" value="Delete Checked Streams">
+</form>
+</div>
+
+<div class="subscribed">
+<h3>Streams I subscribe to</h3>
+<form action="/managementhandler" method="post">
+<table style="width: 100%">
+<tr>
+	<th>Name</th>
+	<th>Last New Picture</th>
+	<th>Number of Pictures</th>
+	<th>Views</th>
+	<th>Unsubscribe</th>
+</tr>
+{% for stream in subscribed_streams %}
+<tr>
+	<td><a href="/view?stream_name={{stream_name}}">{{s_stream.name}}</a></td>
+	<td>{{s_stream.last_new_date}}</td>
+	<td>{{s_stream.num_of_pics}}</td>
+	<td>{{s_stream.num_of_views}}</td>
+	<td><input type="checkbox" name="unsubscribe{{stream.key.id()}}"></td>
+{% endfor %}
+</tr>	
+</table>
+<input type="submit" name="unsubscribe" value="Unsubscribe Checked Streams">
+</form>
+</div>
+
 {% endblock %}
