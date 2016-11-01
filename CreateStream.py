@@ -15,16 +15,15 @@ __author__='yuanrui'
 class Picture(ndb.Model):
 	blob_key=ndb.BlobKeyProperty()
 	date=ndb.DateTimeProperty(auto_now_add=True)
-
 class Stream(ndb.Model):
 	name=ndb.StringProperty()
 	owner=ndb.UserProperty()
-	owner_name=ndb.StringProperty()
 	tags=ndb.StringProperty(repeated=True)
 	subscribers=ndb.StringProperty(repeated=True)
 	pictures=ndb.StructuredProperty(Picture,repeated=True)
 	cover_url=ndb.StringProperty()
 	creation_time=ndb.DateTimeProperty(auto_now_add=True)
+	last_new_date=ndb.DateTimeProperty(auto_now_add=True)
 	num_of_pics=ndb.IntegerProperty()
 	num_of_views=ndb.IntegerProperty()
 
@@ -50,7 +49,6 @@ class CreateStream(webapp2.RequestHandler):
 			new_stream=Stream()
 			new_stream.name=stream_name
 			new_stream.owner=users.get_current_user()
-			new_stream.owner_name=users.get_current_user().nickname()
 			new_stream.tags=self.request.get('tags').split(',')
 			new_stream.subscribers=self.request.get('subscribers').split(',')
 			new_stream.cover_url=self.request.get('cover_url')
