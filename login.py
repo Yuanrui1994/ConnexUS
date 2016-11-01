@@ -20,7 +20,7 @@ class LoginPage(webapp2.RequestHandler):
             url=users.create_logout_url("/")
         else:
             url_linktext="Login"
-            url=users.create_login_url("/createstream")
+            url=users.create_login_url("/management")
         template_values={
             'url':url,
             'url_linktext':url_linktext,
