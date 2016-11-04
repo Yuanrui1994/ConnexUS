@@ -3,7 +3,18 @@ api_version: 1
 threadsafe: true
 
 handlers:
-  
+  - url: /trend
+    script: trend.application
+    login: required
+
+  - url: /search
+    script: search.application
+    login: required
+
+  - url: /searchresult
+    script: search.application
+    login: required
+    
   - url: /viewallstreams
     script: ViewAll.app
     login: required

@@ -56,7 +56,7 @@ class CreateStream(webapp2.RequestHandler):
 			new_stream.num_of_views=0
 			new_stream.num_of_pics=0
 			new_stream.put()
-			to_addrs=self.request.get('subscriber').split(',')
+			to_addrs=self.request.get('subscribers').split(',')
 			email_sender=users.get_current_user().email()
 			email_subject=users.get_current_user().nickname()+"shares a new stream with you"
 			email_message=self.request.get('message')

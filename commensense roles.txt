@@ -1,0 +1,3 @@
+commensense rools:
+faster reliable
+assign weights from commen sense rools
