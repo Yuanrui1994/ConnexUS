@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table style="width: 100%">
+	<tr>
+	{% for picture in pictures%}
+	<td>
+	<img src="/view_photo/{{picture.blob_key}}" width="200" height="150">
+	</td>
+	{% endfor %}
+	</tr>
+</table>
+
+<form action="{{upload_url}}" method="post" enctype="multipart/form-data">
+  Upload File: <input type="file" name="file"><br>
+  <input type="submit" name="submit" value="Submit">
+</form>
+
+<form action="/subscribe?stream_name={{stream_name}}" method="post">
+<input type="submit" name="subscribe" value="Subscribe">
+</form>
+
+
+{% endblock %}

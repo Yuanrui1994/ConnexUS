@@ -4,6 +4,22 @@ threadsafe: true
 
 handlers:
 
+  - url: /upload_photo
+    script: ViewSingleStream.app
+    login: required
+
+  - url: /view_photo/([^/]+)?
+    script: ViewSingleStream.app
+    login: required
+
+  - url: /view
+    script: ViewSingleStream.app
+    login: required
+
+  - url: /subscribe
+    script: ViewSingleStream.app
+    login: required
+
   - url: /createstream
     script: CreateStream.application
     login: required
@@ -19,6 +35,7 @@ handlers:
   - url: /managementhandler
     script: management.application
     login: required
+
   - url: /error
     script: error.application
     login: required
