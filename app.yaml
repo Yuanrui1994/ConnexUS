@@ -3,6 +3,10 @@ api_version: 1
 threadsafe: true
 
 handlers:
+  
+  - url: /viewallstreams
+    script: ViewAll.app
+    login: required
 
   - url: /upload_photo
     script: ViewSingleStream.app

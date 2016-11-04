@@ -26,9 +26,9 @@ class ViewSingleStream(webapp2.RequestHandler):
         stream.put()
         upload_url = blobstore.create_upload_url('/upload_photo?stream_name='+str(stream_name))
         template_values={
-        'stream_name':stream_name,
-        'upload_url':upload_url,
-        'pictures':stream.pictures
+            'stream_name':stream_name,
+            'upload_url':upload_url,
+            'pictures':stream.pictures
         }
         template=JINJA_ENVIRONMENT.get_template('ViewSingle.html')
         self.response.write(template.render(template_values))
@@ -45,6 +45,7 @@ class PhotoUploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             picture.put()
             stream.pictures.append(picture)
             stream.num_of_pics+=1
+            stream.cover_url='/view_photo/'+str(upload.key())
             stream.put()
             self.redirect('/view?stream_name='+str(stream_name))
         except:

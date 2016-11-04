@@ -15,6 +15,7 @@ __author__='yuanrui'
 class Picture(ndb.Model):
 	blob_key=ndb.BlobKeyProperty()
 	date=ndb.DateTimeProperty(auto_now_add=True)
+	
 class Stream(ndb.Model):
 	name=ndb.StringProperty()
 	owner=ndb.UserProperty()

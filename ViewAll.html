@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<table style="width: 100%">
+	<tr>
+	{% for stream in streams %}
+	<td>
+	<a href="/view?stream_name={{stream.name}}"><img src="{{stream.cover_url}}" width="200" height="150"></a>
+	</td>
+	{% endfor %}
+	</tr>
+</table>
+{% endblock %}
