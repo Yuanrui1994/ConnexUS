@@ -36,10 +36,10 @@
 </tr>
 {% for stream in subscribed_streams %}
 <tr>
-	<td><a href="/view?stream_name={{stream_name}}">{{s_stream.name}}</a></td>
-	<td>{{s_stream.last_new_date}}</td>
-	<td>{{s_stream.num_of_pics}}</td>
-	<td>{{s_stream.num_of_views}}</td>
+	<td><a href="/view?stream_name={{stream_name}}">{{stream.name}}</a></td>
+	<td>{{stream.last_new_date}}</td>
+	<td>{{stream.num_of_pics}}</td>
+	<td>{{stream.num_of_views}}</td>
 	<td><input type="checkbox" name="unsubscribe{{stream.key.id()}}"></td>
 {% endfor %}
 </tr>	
